@@ -1,4 +1,4 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -56,25 +56,22 @@
             <p>This is the only slide in the Swiper.</p>
             <!-- 添加更多内容 -->
           </div>
-          <div class="swiper-slide">
-            <p>This is the only slide in the Swiper2.</p>
-            <!-- 添加更多内容 -->
-          </div>
         </div>
       </div>
     </div>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script>
       const swiper = new Swiper(".swiper-container", {
-        direction: "vertical", // 垂直滑动
-        slidesPerView: 1, // 每次只显示一个slide
-        resistance: true, // 开启抵抗效果
-        resistanceRatio: 0.8, // 控制抵抗效果的比例
-        touchReleaseOnEdges: true, // 在边缘释放触摸
-        freeMode: false, // 自由模式，允许滑动超过边界
-        freeModeMomentum: false, // 关闭自由模式下的惯性滑动
-        allowTouchMove: true, // 允许触摸滑动
-        simulateTouch: true, // 模拟触摸事件
+        direction: "vertical",
+        freeMode: true,
+        touchRatio: 1,
+        slidesPerView: 1,
+        centeredSlides: true, // 使选中的Tab居中
+        centeredSlidesBounds: true, // 允许边界处停止
+        slidesOffsetBefore: 1, // 使第一个Tab紧贴左边
+        slidesOffsetAfter: 1, // 使最后一个Tab紧s贴右边
+        observer: true,
+        observeParents: true,
         on: {
           init: function () {
             console.log("Swiper initialized");
