@@ -1,0 +1,102 @@
+  <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tabs with Swiper</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box; /* 确保内边距和边框包含在高度内 */
+        overscroll-behavior: none;
+      }
+      html,
+      body,
+      h1 {
+        overflow-x: hidden; /* Disable horizontal scrolling globally */
+        background-color: black;
+        color: white; /* Optional: Sets text color to white for readability */
+        margin: 0;
+        padding: 0;
+        height: 100%;
+      }
+      .swiper-container {
+        width: 100%;
+        height: 300px;
+        overflow: hidden;
+        background-color: #fff;
+      }
+
+      .swiper-slide {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 24px;
+        background-color: #f00;
+        height: 300px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div>
+        <h1>part 1.</h1>
+        <div>test4</div>
+        <div>asdadsasdadsaasdad</div>
+        <div>asdadsasdadsaasdad</div>
+      </div>
+      <div class="swiper-container">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <p>This is the only slide in the Swiper.</p>
+            <!-- 添加更多内容 -->
+          </div>
+          <div class="swiper-slide">
+            <p>This is the only slide in the Swiper2.</p>
+            <!-- 添加更多内容 -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+      const swiper = new Swiper(".swiper-container", {
+        direction: "vertical", // 垂直滑动
+        slidesPerView: 1, // 每次只显示一个slide
+        resistance: true, // 开启抵抗效果
+        resistanceRatio: 0.8, // 控制抵抗效果的比例
+        touchReleaseOnEdges: true, // 在边缘释放触摸
+        freeMode: false, // 自由模式，允许滑动超过边界
+        freeModeMomentum: false, // 关闭自由模式下的惯性滑动
+        allowTouchMove: true, // 允许触摸滑动
+        simulateTouch: true, // 模拟触摸事件
+        on: {
+          init: function () {
+            console.log("Swiper initialized");
+          },
+          touchStart: function () {
+            console.log("Touch start");
+          },
+          touchMove: function () {
+            console.log("Touch move");
+          },
+          touchEnd: function () {
+            console.log("Touch end");
+          },
+        },
+      });
+
+      // 检查 Swiper 是否初始化成功
+      if (swiper) {
+        console.log("Swiper initialized successfully");
+      } else {
+        console.error("Swiper initialization failed");
+      }
+    </script>
+  </body>
+</html>
